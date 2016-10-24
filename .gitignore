@@ -1,4 +1,5 @@
 .DS_Store
+/timer.sublime-workspace
 /timer.sublime-project
 /node_modules/
 /.sass-cache/
