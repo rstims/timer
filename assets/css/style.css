@@ -1,0 +1,142 @@
+/*_colors.scss */
+/* Body Text Styles */
+/*mixins.scss*/
+/*_variables.scss */
+/*_typography.scss*/
+body {
+  color: #060707;
+  font-size: 16px;
+  font-family: 'Verdana', sans-serif;
+  font-weight: normal;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+html, body, .container {
+  height: 100%;
+}
+
+.container {
+  position: relative;
+}
+
+.jumbotron {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.timer {
+  width: 100%;
+  background: #5cc6c6;
+  height: 50px;
+  position: relative;
+}
+
+.timer.timer--stopped.timer--reset,
+.timer__reset {
+  cursor: pointer;
+}
+
+.timer__reset {
+  position: absolute;
+  right: 5px;
+  top: 0;
+  z-index: 999;
+  font-size: 11px;
+}
+
+.timer__message {
+  position: relative;
+  font-size: 12px;
+  text-align: center;
+  line-height: 50px;
+  z-index: 999;
+}
+
+.timer__message--start {
+  color: #fff;
+}
+
+.timer__message--end,
+.timer__reset {
+  color: #5bc7c4;
+}
+
+.timer__progress {
+  height: 50px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 100%;
+  -webkit-transition-property: right;
+  -moz-transition-property: right;
+  -o-transition-property: right;
+  transition-property: right;
+  -webkit-transition-timing-function: linear;
+  -moz-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
+  background: #ade2e2;
+  z-index: 99;
+}
+
+.timer__loader {
+  position: relative;
+  margin: 0 auto 0;
+  width: 70px;
+  text-align: center;
+  height: 50px;
+  line-height: 58px;
+  z-index: 9999;
+}
+
+.timer__loader > div {
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 100%;
+  display: inline-block;
+  -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.timer__loader .timer__loader-bounce1 {
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+
+.timer__loader .timer__loader-bounce2 {
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
+}
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
