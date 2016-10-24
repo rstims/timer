@@ -90,6 +90,9 @@ html, body, .container {
   z-index: 99;
 }
 
+/**
+ * Loader Animation
+ */
 .timer__loader {
   position: relative;
   margin: 0 auto 0;
