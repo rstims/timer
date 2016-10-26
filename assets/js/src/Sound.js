@@ -14,6 +14,8 @@ class Sound{
 
     start(){
         this.son.play();
+        
+        setTimeout(() => {this.stop();}, this.son.duration * 1000);
     }
 
     remove(){

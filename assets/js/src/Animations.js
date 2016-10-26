@@ -82,7 +82,6 @@ class Animations {
         console.log("Stopped timer...");
         this.init();
         this.callback();
-        setTimeout(() => {this.sound.stop();}, 6000);
         return;
     }
 
