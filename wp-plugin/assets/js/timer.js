@@ -472,7 +472,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'stop',
 	        value: function stop() {
-	            var _this3 = this;
 
 	            this.count = 0;
 	            clearInterval(this.runInterval);
@@ -486,9 +485,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            console.log("Stopped timer...");
 	            this.init();
 	            this.callback();
-	            setTimeout(function () {
-	                _this3.sound.stop();
-	            }, 6000);
 	            return;
 	        }
 	    }, {
@@ -540,7 +536,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: "start",
 	        value: function start() {
+	            var _this = this;
+
 	            this.son.play();
+	            setTimeout(function () {
+	                _this.stop();
+	            }, this.son.duration * 1000);
 	        }
 	    }, {
 	        key: "remove",
