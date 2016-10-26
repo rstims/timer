@@ -15,7 +15,7 @@ class Timer {
 
         this.base = new Base();
 
-        this.animations = new Animations(this.options, this.elements, this.base, );
+        this.animations = new Animations(this.options, this.elements, this.base);
         this.cookies = new Cookies();
 
         this.elements.reset.addEventListener('click', e => {
