@@ -46,7 +46,7 @@
 
         <div class="jumbotron">
             <label for="timer-time">Enter test time:</label>  </label><input id="timer-time" type="number" style="margin-bottom:40px;" />
-           <div class="timer timer--stopped timer--reset">
+           <div id="timer" class="timer timer--stopped timer--reset">
 
              <div class="timer__loader">
                <div class="timer__loader-bounce1"></div>
@@ -77,7 +77,8 @@
     <script>
       document.addEventListener('DOMContentLoaded', function(){
         var timer = new window.timer({
-            endChime:"/timer/assets/sounds/gong.mp3",
+            selector: document.getElementById('timer'),
+            endChime: "/timer/assets/sounds/gong.mp3",
             inputControl: document.getElementById('timer-time')
           });
       });

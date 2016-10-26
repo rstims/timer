@@ -116,12 +116,14 @@ class Timer {
     }
 
     _setupElements(){
+        var timer = this.options.selector;
+        console.log(timer);
         this.elements = {
-            timer: document.querySelector('.timer'),
-            progress: document.querySelector('.timer__progress'),
-            reset: document.querySelector('.timer__reset'),
-            loader: document.querySelector('.timer__loader'),
-            message: document.querySelector('.timer__message'),
+            timer: timer,
+            progress: timer.querySelector('.timer__progress'),
+            reset: timer.querySelector('.timer__reset'),
+            loader: timer.querySelector('.timer__loader'),
+            message: timer.querySelector('.timer__message'),
             showLoader: function(){
                 console.log('showLoader');
                 this.loader.style.display = 'block';
@@ -131,6 +133,8 @@ class Timer {
                 this.loader.style.display = 'none';
             }
         }
+
+        console.log(this.elements);
 
         if(this.options.readyBGColor !== ''){
             this.elements.timer.style.background = this.options.readyBGColor;
@@ -149,6 +153,7 @@ Timer.defaultText = 'Please choose time';
 
 // Overrideable options
 Timer.options = {
+    selector:document.querySelector('.timer'),
     duration: 10,
     readyBGColor:'',
     progressBGColor:'',
