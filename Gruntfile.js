@@ -7,8 +7,8 @@ module.exports = function (grunt) {
         // setting folder templates
         dirs: {
             js: './assets/js',
-            css: 'assets/css',
-            sass: 'assets/sass'
+            css: './assets/css',
+            sass: './assets/sass'
         },
         watch: {
             sass: {

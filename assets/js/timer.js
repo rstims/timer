@@ -539,7 +539,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	            var _this = this;
 
 	            this.son.play();
-
 	            setTimeout(function () {
 	                _this.stop();
 	            }, this.son.duration * 1000);
