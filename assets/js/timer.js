@@ -217,7 +217,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        key: '_setupElements',
 	        value: function _setupElements() {
 	            var timer = this.options.selector;
-	            console.log(timer);
+
 	            this.elements = {
 	                timer: timer,
 	                progress: timer.querySelector('.timer__progress'),
@@ -234,14 +234,41 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	            };
 
-	            console.log(this.elements);
-
 	            if (this.options.readyBGColor !== '') {
 	                this.elements.timer.style.background = this.options.readyBGColor;
 	            }
 	            if (this.options.progressBGColor !== '') {
 	                this.elements.progress.style.background = this.options.progressBGColor;
 	            }
+
+	            var readyBGTextColor,
+	                progressBGTextColor,
+	                loaderColor,
+	                insertPoint = this.elements.timer,
+	                style = document.createElement('style'),
+	                css;
+
+	            if (this.options.readyBGTextColor != '') {
+
+	                readyBGTextColor = '.timer.timer--stopped.timer--reset .timer__message{ color: ' + this.options.readyBGTextColor + '; }';
+	            }
+
+	            if (this.options.progressBGTextColor != '') {
+	                progressBGTextColor = '.timer.timer--stopped.timer--not-reset .timer__message, .timer.timer--stopped.timer--not-reset .timer__reset{ color: ' + this.options.progressBGTextColor + '; }';
+	            }
+
+	            if (this.options.loaderColor != '') {
+	                loaderColor = '.timer.timer--stopped.timer--not-reset .timer__loader > div{ background-color: ' + this.options.loaderColor + '; }';
+	            }
+	            style.type = 'text/css';
+	            css = readyBGTextColor + progressBGTextColor + loaderColor;
+	            if (style.styleSheet) {
+	                style.styleSheet.cssText = css;
+	            } else {
+	                style.appendChild(document.createTextNode(css));
+	            }
+
+	            insertPoint.appendChild(style);
 	        }
 	    }]);
 
@@ -262,7 +289,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	    readyBGColor: '',
 	    progressBGColor: '',
 	    endChime: '',
-	    inputControl: false
+	    inputControl: false,
+	    readyBGTextColor: '',
+	    progressBGTextColor: '',
+	    loaderColor: ''
 	};
 	exports.default = Timer;
 

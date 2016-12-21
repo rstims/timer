@@ -216,12 +216,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: '_setupElements',
 	        value: function _setupElements() {
+	            var timer = this.options.selector;
+
 	            this.elements = {
-	                timer: document.querySelector('.timer'),
-	                progress: document.querySelector('.timer__progress'),
-	                reset: document.querySelector('.timer__reset'),
-	                loader: document.querySelector('.timer__loader'),
-	                message: document.querySelector('.timer__message'),
+	                timer: timer,
+	                progress: timer.querySelector('.timer__progress'),
+	                reset: timer.querySelector('.timer__reset'),
+	                loader: timer.querySelector('.timer__loader'),
+	                message: timer.querySelector('.timer__message'),
 	                showLoader: function showLoader() {
 	                    console.log('showLoader');
 	                    this.loader.style.display = 'block';
@@ -238,6 +240,35 @@ return /******/ (function(modules) { // webpackBootstrap
 	            if (this.options.progressBGColor !== '') {
 	                this.elements.progress.style.background = this.options.progressBGColor;
 	            }
+
+	            var readyBGTextColor,
+	                progressBGTextColor,
+	                loaderColor,
+	                insertPoint = this.elements.timer,
+	                style = document.createElement('style'),
+	                css;
+
+	            if (this.options.readyBGTextColor != '') {
+
+	                readyBGTextColor = '.timer.timer--stopped.timer--reset .timer__message{ color: ' + this.options.readyBGTextColor + '; }';
+	            }
+
+	            if (this.options.progressBGTextColor != '') {
+	                progressBGTextColor = '.timer.timer--stopped.timer--not-reset .timer__message, .timer.timer--stopped.timer--not-reset .timer__reset{ color: ' + this.options.progressBGTextColor + '; }';
+	            }
+
+	            if (this.options.loaderColor != '') {
+	                loaderColor = '.timer.timer--stopped.timer--not-reset .timer__loader > div{ background-color: ' + this.options.loaderColor + '; }';
+	            }
+	            style.type = 'text/css';
+	            css = readyBGTextColor + progressBGTextColor + loaderColor;
+	            if (style.styleSheet) {
+	                style.styleSheet.cssText = css;
+	            } else {
+	                style.appendChild(document.createTextNode(css));
+	            }
+
+	            insertPoint.appendChild(style);
 	        }
 	    }]);
 
@@ -253,11 +284,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	// Overrideable options
 	Timer.options = {
+	    selector: document.querySelector('.timer'),
 	    duration: 10,
 	    readyBGColor: '',
 	    progressBGColor: '',
 	    endChime: '',
-	    inputControl: false
+	    inputControl: false,
+	    readyBGTextColor: '',
+	    progressBGTextColor: '',
+	    loaderColor: ''
 	};
 	exports.default = Timer;
 
