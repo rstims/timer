@@ -30,9 +30,9 @@ if(!function_exists('timer_action')):
 				'duration' => 0,
 				'bg_color' => '',
 				'pb_color' => '',
-				'readyBGTextColor': '',
-				'progressBGTextColor': '',
-				'loaderColor': ''
+				'readyBGTextColor' => '',
+				'progressBGTextColor' => '',
+				'loaderColor' => ''
 				'chime' => plugins_url( 'assets/sounds/gong.mp3', __FILE__ )
 			), $atts));
 
